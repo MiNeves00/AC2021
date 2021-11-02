@@ -1,0 +1,9 @@
+Na tabela transaction:
+:: withdrawal -> pagamento (Sinonimo de debito ou pagamento)
+:: credito -> recebeu
+-> Para cada conta guardar o ultimo balanceamento da conta, ou seja, aquele que tem a data mais perto dos dias de hoje
+-> atributos a guardar: account_id, balance(mais recente)
+
+Na tabela account:
+-> frequency talvez nao interesse
+
