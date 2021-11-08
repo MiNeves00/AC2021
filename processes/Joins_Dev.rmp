@@ -99,6 +99,24 @@
         <parameter key="invert_selection" value="true"/>
         <parameter key="include_special_attributes" value="false"/>
       </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Transactions_Dev_ops" width="90" x="782" y="238">
+        <parameter key="process_location" value="Transactions_Dev_ops"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (6)" width="90" x="983" y="187">
+        <parameter key="remove_double_attributes" value="true"/>
+        <parameter key="join_type" value="inner"/>
+        <parameter key="use_id_attribute_as_key" value="false"/>
+        <list key="key_attributes">
+          <parameter key="account_id" value="account_id"/>
+        </list>
+        <parameter key="keep_both_join_attributes" value="false"/>
+      </operator>
       <connect from_op="Retrieve account" from_port="output" to_op="Join" to_port="right"/>
       <connect from_op="Retrieve disp (2)" from_port="output" to_op="Join (2)" to_port="right"/>
       <connect from_op="Retrieve client (2)" from_port="output" to_op="Join (5)" to_port="right"/>
@@ -111,7 +129,9 @@
       <connect from_op="Retrieve district" from_port="output" to_op="Join (4)" to_port="right"/>
       <connect from_op="Join (4)" from_port="join" to_op="Filter Examples" to_port="example set input"/>
       <connect from_op="Filter Examples" from_port="example set output" to_op="Select Attributes" to_port="example set input"/>
-      <connect from_op="Select Attributes" from_port="example set output" to_port="result 1"/>
+      <connect from_op="Select Attributes" from_port="example set output" to_op="Join (6)" to_port="left"/>
+      <connect from_op="Execute Transactions_Dev_ops" from_port="result 1" to_op="Join (6)" to_port="right"/>
+      <connect from_op="Join (6)" from_port="join" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>

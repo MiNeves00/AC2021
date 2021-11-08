@@ -12,8 +12,14 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve loan_train" width="90" x="45" y="187">
-        <parameter key="repository_entry" value="//ProjetoAC/data/loan_train"/>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Joins_Dev" width="90" x="45" y="187">
+        <parameter key="process_location" value="Joins_Dev"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
       <operator activated="true" class="numerical_to_binominal" compatibility="9.10.001" expanded="true" height="82" name="Numerical to Binominal" width="90" x="179" y="187">
         <parameter key="attribute_filter_type" value="single"/>
@@ -120,8 +126,14 @@
           <portSpacing port="sink_averagable 2" spacing="0"/>
         </process>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve loan_test" width="90" x="45" y="85">
-        <parameter key="repository_entry" value="//ProjetoAC/data/loan_test"/>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Joins_Comp" width="90" x="112" y="85">
+        <parameter key="process_location" value="Joins_Comp"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
       <operator activated="true" class="set_role" compatibility="9.10.001" expanded="true" height="82" name="Set Role (2)" width="90" x="313" y="85">
         <parameter key="attribute_name" value="status"/>
@@ -156,8 +168,14 @@
         <parameter key="append_to_file" value="false"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve loan_train (2)" width="90" x="112" y="391">
-        <parameter key="repository_entry" value="//ProjetoAC/data/loan_train"/>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Joins_Dev (2)" width="90" x="112" y="391">
+        <parameter key="process_location" value="Joins_Dev"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
       <operator activated="true" class="numerical_to_binominal" compatibility="9.10.001" expanded="true" height="82" name="Numerical to Binominal (2)" width="90" x="246" y="391">
         <parameter key="attribute_filter_type" value="single"/>
@@ -222,18 +240,18 @@
           <portSpacing port="sink_model 2" spacing="0"/>
         </process>
       </operator>
-      <connect from_op="Retrieve loan_train" from_port="output" to_op="Numerical to Binominal" to_port="example set input"/>
+      <connect from_op="Execute Joins_Dev" from_port="result 1" to_op="Numerical to Binominal" to_port="example set input"/>
       <connect from_op="Numerical to Binominal" from_port="example set output" to_op="Set Role" to_port="example set input"/>
       <connect from_op="Set Role" from_port="example set output" to_op="Select Attributes" to_port="example set input"/>
       <connect from_op="Select Attributes" from_port="example set output" to_op="Validation" to_port="training"/>
       <connect from_op="Validation" from_port="model" to_op="Apply Model (2)" to_port="model"/>
       <connect from_op="Validation" from_port="averagable 1" to_port="result 2"/>
-      <connect from_op="Retrieve loan_test" from_port="output" to_op="Set Role (2)" to_port="example set input"/>
+      <connect from_op="Execute Joins_Comp" from_port="result 1" to_op="Set Role (2)" to_port="example set input"/>
       <connect from_op="Set Role (2)" from_port="example set output" to_op="Apply Model (2)" to_port="unlabelled data"/>
       <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Select Attributes (2)" to_port="example set input"/>
       <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Write CSV" to_port="input"/>
       <connect from_op="Write CSV" from_port="through" to_port="result 1"/>
-      <connect from_op="Retrieve loan_train (2)" from_port="output" to_op="Numerical to Binominal (2)" to_port="example set input"/>
+      <connect from_op="Execute Joins_Dev (2)" from_port="result 1" to_op="Numerical to Binominal (2)" to_port="example set input"/>
       <connect from_op="Numerical to Binominal (2)" from_port="example set output" to_op="Set Role (3)" to_port="example set input"/>
       <connect from_op="Set Role (3)" from_port="example set output" to_op="Select Attributes (3)" to_port="example set input"/>
       <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Compare ROCs" to_port="example set"/>
