@@ -99,7 +99,7 @@
         <parameter key="invert_selection" value="true"/>
         <parameter key="include_special_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Transactions_Dev_ops" width="90" x="782" y="238">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Transactions_Dev_ops" width="90" x="983" y="136">
         <parameter key="process_location" value="Transactions_Dev_ops"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
@@ -108,9 +108,9 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (6)" width="90" x="983" y="187">
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (6)" width="90" x="1117" y="34">
         <parameter key="remove_double_attributes" value="true"/>
-        <parameter key="join_type" value="inner"/>
+        <parameter key="join_type" value="left"/>
         <parameter key="use_id_attribute_as_key" value="false"/>
         <list key="key_attributes">
           <parameter key="account_id" value="account_id"/>

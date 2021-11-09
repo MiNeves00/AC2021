@@ -15,13 +15,13 @@
       <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve account" width="90" x="179" y="136">
         <parameter key="repository_entry" value="//ProjetoAC/data/account"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve disp (2)" width="90" x="313" y="136">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve disp (2)" width="90" x="447" y="136">
         <parameter key="repository_entry" value="//ProjetoAC/data/disp"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve client (2)" width="90" x="447" y="136">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve client (2)" width="90" x="715" y="136">
         <parameter key="repository_entry" value="//ProjetoAC/data/client"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve district" width="90" x="1117" y="289">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve district" width="90" x="1318" y="136">
         <parameter key="repository_entry" value="//ProjetoAC/data/district"/>
       </operator>
       <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve loan_comp" width="90" x="179" y="34">
@@ -85,7 +85,7 @@
         <parameter key="filters_logic_and" value="true"/>
         <parameter key="filters_check_metadata" value="true"/>
       </operator>
-      <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes" width="90" x="2055" y="34">
+      <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes" width="90" x="1988" y="34">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value="birth_number|issued"/>
@@ -99,7 +99,7 @@
         <parameter key="invert_selection" value="true"/>
         <parameter key="include_special_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Transactions_Comp_ops" width="90" x="916" y="238">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Transactions_Comp_ops" width="90" x="1988" y="136">
         <parameter key="process_location" value="//ProjetoAC/processes/Transactions_Comp_ops"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
@@ -108,9 +108,9 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (6)" width="90" x="1184" y="187">
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (6)" width="90" x="2122" y="34">
         <parameter key="remove_double_attributes" value="true"/>
-        <parameter key="join_type" value="inner"/>
+        <parameter key="join_type" value="left"/>
         <parameter key="use_id_attribute_as_key" value="false"/>
         <list key="key_attributes">
           <parameter key="account_id" value="account_id"/>
