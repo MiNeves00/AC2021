@@ -66,7 +66,7 @@
       </operator>
       <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.9.003" expanded="true" height="124" name="Optimize Parameters (Grid)" width="90" x="648" y="34">
         <list key="parameters">
-          <parameter key="Random Forest.criterion" value="accuracy"/>
+          <parameter key="Random Forest.criterion" value="accuracy,gain_ratio,information_gain,gini_index"/>
         </list>
         <parameter key="error_handling" value="fail on error"/>
         <parameter key="log_performance" value="true"/>
@@ -166,7 +166,7 @@
               </operator>
               <operator activated="true" class="concurrency:parallel_random_forest" compatibility="9.9.003" expanded="true" height="103" name="Random Forest" width="90" x="179" y="493">
                 <parameter key="number_of_trees" value="100"/>
-                <parameter key="criterion" value="accuracy"/>
+                <parameter key="criterion" value="gain_ratio"/>
                 <parameter key="maximal_depth" value="10"/>
                 <parameter key="apply_pruning" value="false"/>
                 <parameter key="confidence" value="0.1"/>
@@ -271,7 +271,7 @@
         <parameter key="to_attribute" value=""/>
       </operator>
       <operator activated="true" class="write_csv" compatibility="9.9.003" expanded="true" height="82" name="Write CSV" width="90" x="1251" y="136">
-        <parameter key="csv_file" value="C:/Users/neves/Documents/MIEIC/4Ano/1Semestre/AC/livro1.csv"/>
+        <parameter key="csv_file" value="C:/Users/neves/Documents/MIEIC/4Ano/1Semestre/AC/AC2021/comp_predictions.csv"/>
         <parameter key="column_separator" value=","/>
         <parameter key="write_attribute_names" value="true"/>
         <parameter key="quote_nominal_values" value="false"/>
