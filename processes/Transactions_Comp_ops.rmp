@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><process version="9.9.003">
+<?xml version="1.0" encoding="UTF-8"?><process version="9.10.001">
   <context>
     <input/>
     <output/>
     <macros/>
   </context>
-  <operator activated="true" class="process" compatibility="9.9.003" expanded="true" name="Process">
+  <operator activated="true" class="process" compatibility="9.10.001" expanded="true" name="Process">
     <parameter key="logverbosity" value="init"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>
@@ -12,10 +12,10 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="retrieve" compatibility="9.9.003" expanded="true" height="68" name="Retrieve trans_comp (6)" width="90" x="313" y="238">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve trans_comp (6)" width="90" x="313" y="238">
         <parameter key="repository_entry" value="../data/trans_comp"/>
       </operator>
-      <operator activated="true" class="aggregate" compatibility="9.9.003" expanded="true" height="82" name="Aggregate" width="90" x="447" y="238">
+      <operator activated="true" class="aggregate" compatibility="9.10.001" expanded="true" height="82" name="Aggregate" width="90" x="447" y="238">
         <parameter key="use_default_aggregation" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
         <parameter key="attribute" value=""/>
@@ -40,10 +40,10 @@
         <parameter key="only_distinct" value="false"/>
         <parameter key="ignore_missings" value="true"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.9.003" expanded="true" height="68" name="Retrieve trans_comp (5)" width="90" x="313" y="340">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve trans_comp (5)" width="90" x="313" y="340">
         <parameter key="repository_entry" value="../data/trans_comp"/>
       </operator>
-      <operator activated="true" class="aggregate" compatibility="9.9.003" expanded="true" height="82" name="Aggregate (2)" width="90" x="447" y="340">
+      <operator activated="true" class="aggregate" compatibility="9.10.001" expanded="true" height="82" name="Aggregate (2)" width="90" x="447" y="340">
         <parameter key="use_default_aggregation" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
         <parameter key="attribute" value=""/>
@@ -66,10 +66,10 @@
         <parameter key="only_distinct" value="false"/>
         <parameter key="ignore_missings" value="true"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.9.003" expanded="true" height="68" name="Retrieve trans_comp (4)" width="90" x="447" y="442">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve trans_comp (4)" width="90" x="447" y="442">
         <parameter key="repository_entry" value="../data/trans_comp"/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="9.9.003" expanded="true" height="82" name="Join" width="90" x="581" y="340">
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join" width="90" x="581" y="340">
         <parameter key="remove_double_attributes" value="true"/>
         <parameter key="join_type" value="inner"/>
         <parameter key="use_id_attribute_as_key" value="false"/>
@@ -78,7 +78,7 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="9.9.003" expanded="true" height="82" name="Join (2)" width="90" x="715" y="238">
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (2)" width="90" x="715" y="238">
         <parameter key="remove_double_attributes" value="true"/>
         <parameter key="join_type" value="inner"/>
         <parameter key="use_id_attribute_as_key" value="false"/>
@@ -87,10 +87,10 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.9.003" expanded="true" height="68" name="Retrieve trans_comp (3)" width="90" x="313" y="544">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve trans_comp (3)" width="90" x="313" y="544">
         <parameter key="repository_entry" value="../data/trans_comp"/>
       </operator>
-      <operator activated="true" class="aggregate" compatibility="9.9.003" expanded="true" height="82" name="Aggregate (6)" width="90" x="447" y="544">
+      <operator activated="true" class="aggregate" compatibility="9.10.001" expanded="true" height="82" name="Aggregate (6)" width="90" x="447" y="544">
         <parameter key="use_default_aggregation" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
         <parameter key="attribute" value=""/>
@@ -114,20 +114,20 @@
         <parameter key="only_distinct" value="false"/>
         <parameter key="ignore_missings" value="true"/>
       </operator>
-      <operator activated="true" class="generate_attributes" compatibility="9.9.003" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="581" y="544">
+      <operator activated="true" class="generate_attributes" compatibility="9.10.001" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="581" y="544">
         <list key="function_descriptions">
           <parameter key="max_date" value="str([maximum(date)])"/>
           <parameter key="min_date" value="str([minimum(date)])"/>
         </list>
         <parameter key="keep_all" value="true"/>
       </operator>
-      <operator activated="true" class="generate_attributes" compatibility="9.9.003" expanded="true" height="82" name="Generate Attributes (3)" width="90" x="715" y="544">
+      <operator activated="true" class="generate_attributes" compatibility="9.10.001" expanded="true" height="82" name="Generate Attributes (3)" width="90" x="715" y="544">
         <list key="function_descriptions">
           <parameter key="time_elapsed" value="floor(date_diff(date_parse_custom(min_date,&quot;yyMMdd&quot;), date_parse_custom(max_date,&quot;yyMMdd&quot;)) / (3600 * 24 * 1000))"/>
         </list>
         <parameter key="keep_all" value="true"/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="9.9.003" expanded="true" height="82" name="Join (4)" width="90" x="916" y="340">
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (4)" width="90" x="916" y="340">
         <parameter key="remove_double_attributes" value="true"/>
         <parameter key="join_type" value="inner"/>
         <parameter key="use_id_attribute_as_key" value="false"/>
@@ -136,10 +136,10 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.9.003" expanded="true" height="68" name="Retrieve trans_comp (2)" width="90" x="313" y="748">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve trans_comp (2)" width="90" x="313" y="748">
         <parameter key="repository_entry" value="../data/trans_comp"/>
       </operator>
-      <operator activated="true" class="replace" compatibility="9.9.003" expanded="true" height="82" name="Replace" width="90" x="447" y="748">
+      <operator activated="true" class="replace" compatibility="9.10.001" expanded="true" height="82" name="Replace" width="90" x="447" y="748">
         <parameter key="attribute_filter_type" value="single"/>
         <parameter key="attribute" value="type"/>
         <parameter key="attributes" value=""/>
@@ -155,7 +155,7 @@
         <parameter key="replace_what" value="withdrawal.*"/>
         <parameter key="replace_by" value="withdrawal"/>
       </operator>
-      <operator activated="true" class="filter_examples" compatibility="9.9.003" expanded="true" height="103" name="Filter Examples (2)" width="90" x="648" y="748">
+      <operator activated="true" class="filter_examples" compatibility="9.10.001" expanded="true" height="103" name="Filter Examples (2)" width="90" x="648" y="748">
         <parameter key="parameter_expression" value=""/>
         <parameter key="condition_class" value="custom_filters"/>
         <parameter key="invert_filter" value="false"/>
@@ -165,7 +165,7 @@
         <parameter key="filters_logic_and" value="true"/>
         <parameter key="filters_check_metadata" value="true"/>
       </operator>
-      <operator activated="true" class="aggregate" compatibility="9.9.003" expanded="true" height="82" name="Aggregate (3)" width="90" x="782" y="748">
+      <operator activated="true" class="aggregate" compatibility="9.10.001" expanded="true" height="82" name="Aggregate (3)" width="90" x="782" y="748">
         <parameter key="use_default_aggregation" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
         <parameter key="attribute" value=""/>
@@ -188,17 +188,17 @@
         <parameter key="only_distinct" value="false"/>
         <parameter key="ignore_missings" value="true"/>
       </operator>
-      <operator activated="true" class="blending:rename" compatibility="9.9.003" expanded="true" height="82" name="Rename" width="90" x="983" y="748">
+      <operator activated="true" class="blending:rename" compatibility="9.10.001" expanded="true" height="82" name="Rename" width="90" x="983" y="748">
         <list key="rename attributes">
           <parameter key="count(amount)" value="no_withdrawal"/>
         </list>
         <parameter key="from_attribute" value=""/>
         <parameter key="to_attribute" value=""/>
       </operator>
-      <operator activated="true" class="retrieve" compatibility="9.9.003" expanded="true" height="68" name="Retrieve trans_comp" width="90" x="313" y="901">
+      <operator activated="true" class="retrieve" compatibility="9.10.001" expanded="true" height="68" name="Retrieve trans_comp" width="90" x="313" y="901">
         <parameter key="repository_entry" value="../data/trans_comp"/>
       </operator>
-      <operator activated="true" class="replace" compatibility="9.9.003" expanded="true" height="82" name="Replace (3)" width="90" x="447" y="901">
+      <operator activated="true" class="replace" compatibility="9.10.001" expanded="true" height="82" name="Replace (3)" width="90" x="447" y="901">
         <parameter key="attribute_filter_type" value="single"/>
         <parameter key="attribute" value="type"/>
         <parameter key="attributes" value=""/>
@@ -214,7 +214,7 @@
         <parameter key="replace_what" value="credit.*"/>
         <parameter key="replace_by" value="credit"/>
       </operator>
-      <operator activated="true" class="filter_examples" compatibility="9.9.003" expanded="true" height="103" name="Filter Examples (3)" width="90" x="648" y="901">
+      <operator activated="true" class="filter_examples" compatibility="9.10.001" expanded="true" height="103" name="Filter Examples (3)" width="90" x="648" y="901">
         <parameter key="parameter_expression" value=""/>
         <parameter key="condition_class" value="custom_filters"/>
         <parameter key="invert_filter" value="false"/>
@@ -224,7 +224,7 @@
         <parameter key="filters_logic_and" value="true"/>
         <parameter key="filters_check_metadata" value="true"/>
       </operator>
-      <operator activated="true" class="aggregate" compatibility="9.9.003" expanded="true" height="82" name="Aggregate (5)" width="90" x="782" y="901">
+      <operator activated="true" class="aggregate" compatibility="9.10.001" expanded="true" height="82" name="Aggregate (5)" width="90" x="782" y="901">
         <parameter key="use_default_aggregation" value="false"/>
         <parameter key="attribute_filter_type" value="all"/>
         <parameter key="attribute" value=""/>
@@ -247,14 +247,14 @@
         <parameter key="only_distinct" value="false"/>
         <parameter key="ignore_missings" value="true"/>
       </operator>
-      <operator activated="true" class="blending:rename" compatibility="9.9.003" expanded="true" height="82" name="Rename (2)" width="90" x="983" y="901">
+      <operator activated="true" class="blending:rename" compatibility="9.10.001" expanded="true" height="82" name="Rename (2)" width="90" x="983" y="901">
         <list key="rename attributes">
           <parameter key="count(amount)" value="no_credits"/>
         </list>
         <parameter key="from_attribute" value=""/>
         <parameter key="to_attribute" value=""/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="9.9.003" expanded="true" height="82" name="Join (5)" width="90" x="1184" y="799">
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (5)" width="90" x="1184" y="799">
         <parameter key="remove_double_attributes" value="true"/>
         <parameter key="join_type" value="inner"/>
         <parameter key="use_id_attribute_as_key" value="false"/>
@@ -263,7 +263,7 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="concurrency:join" compatibility="9.9.003" expanded="true" height="82" name="Join (6)" width="90" x="1385" y="544">
+      <operator activated="true" class="concurrency:join" compatibility="9.10.001" expanded="true" height="82" name="Join (6)" width="90" x="1385" y="544">
         <parameter key="remove_double_attributes" value="true"/>
         <parameter key="join_type" value="inner"/>
         <parameter key="use_id_attribute_as_key" value="false"/>
@@ -272,7 +272,14 @@
         </list>
         <parameter key="keep_both_join_attributes" value="false"/>
       </operator>
-      <operator activated="true" class="select_attributes" compatibility="9.9.003" expanded="true" height="82" name="Select Attributes" width="90" x="1519" y="391">
+      <operator activated="true" class="blending:rename" compatibility="9.10.001" expanded="true" height="82" name="Rename (3)" width="90" x="1519" y="493">
+        <list key="rename attributes">
+          <parameter key="date" value="trans_date"/>
+        </list>
+        <parameter key="from_attribute" value=""/>
+        <parameter key="to_attribute" value=""/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes" width="90" x="1519" y="391">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value="|account_id|average(balance)|balance|maximum(balance)|minimum(balance)|no_withdrawal|time_elapsed|no_credits"/>
@@ -309,7 +316,8 @@
       <connect from_op="Aggregate (5)" from_port="example set output" to_op="Rename (2)" to_port="example set input"/>
       <connect from_op="Rename (2)" from_port="example set output" to_op="Join (5)" to_port="right"/>
       <connect from_op="Join (5)" from_port="join" to_op="Join (6)" to_port="right"/>
-      <connect from_op="Join (6)" from_port="join" to_op="Select Attributes" to_port="example set input"/>
+      <connect from_op="Join (6)" from_port="join" to_op="Rename (3)" to_port="example set input"/>
+      <connect from_op="Rename (3)" from_port="example set output" to_op="Select Attributes" to_port="example set input"/>
       <connect from_op="Select Attributes" from_port="example set output" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
