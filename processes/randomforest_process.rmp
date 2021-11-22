@@ -26,7 +26,7 @@
         <parameter key="target_role" value="label"/>
         <list key="set_additional_roles"/>
       </operator>
-      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Joins_Dev" width="90" x="246" y="34">
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute Joins_Dev" width="90" x="313" y="34">
         <parameter key="process_location" value="Joins_Dev"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
@@ -35,7 +35,7 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="true" class="numerical_to_binominal" compatibility="9.10.001" expanded="true" height="82" name="Numerical to Binominal" width="90" x="380" y="34">
+      <operator activated="true" class="numerical_to_binominal" compatibility="9.10.001" expanded="true" height="82" name="Numerical to Binominal" width="90" x="447" y="34">
         <parameter key="attribute_filter_type" value="single"/>
         <parameter key="attribute" value="status"/>
         <parameter key="attributes" value=""/>
@@ -51,32 +51,14 @@
         <parameter key="min" value="0.0"/>
         <parameter key="max" value="2.0"/>
       </operator>
-      <operator activated="true" class="set_role" compatibility="9.10.001" expanded="true" height="82" name="Set Role" width="90" x="514" y="34">
+      <operator activated="true" class="set_role" compatibility="9.10.001" expanded="true" height="82" name="Set Role" width="90" x="581" y="34">
         <parameter key="attribute_name" value="status"/>
         <parameter key="target_role" value="label"/>
         <list key="set_additional_roles"/>
       </operator>
-      <operator activated="false" class="concurrency:correlation_matrix" compatibility="9.10.001" expanded="true" height="103" name="Correlation Matrix" width="90" x="782" y="391">
-        <parameter key="attribute_filter_type" value="all"/>
-        <parameter key="attribute" value=""/>
-        <parameter key="attributes" value=""/>
-        <parameter key="use_except_expression" value="false"/>
-        <parameter key="value_type" value="attribute_value"/>
-        <parameter key="use_value_type_exception" value="false"/>
-        <parameter key="except_value_type" value="time"/>
-        <parameter key="block_type" value="attribute_block"/>
-        <parameter key="use_block_type_exception" value="false"/>
-        <parameter key="except_block_type" value="value_matrix_row_start"/>
-        <parameter key="invert_selection" value="false"/>
-        <parameter key="include_special_attributes" value="false"/>
-        <parameter key="normalize_weights" value="true"/>
-        <parameter key="squared_correlation" value="false"/>
-      </operator>
-      <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.10.001" expanded="true" height="124" name="Optimize Parameters (Grid)" width="90" x="782" y="34">
+      <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.10.001" expanded="true" height="124" name="Optimize Parameters (Grid) (3)" width="90" x="715" y="34">
         <list key="parameters">
-          <parameter key="Random Forest.criterion" value="gain_ratio,information_gain,gini_index,accuracy"/>
-          <parameter key="Random Forest.maximal_depth" value="[10;50.0;10;linear]"/>
-          <parameter key="Random Forest.minimal_leaf_size" value="[10;50;10;linear]"/>
+          <parameter key="Random Forest (3).criterion" value="gain_ratio"/>
         </list>
         <parameter key="error_handling" value="fail on error"/>
         <parameter key="log_performance" value="true"/>
@@ -84,7 +66,7 @@
         <parameter key="synchronize" value="false"/>
         <parameter key="enable_parallel_execution" value="true"/>
         <process expanded="true">
-          <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.001" expanded="true" height="145" name="Cross Validation" width="90" x="380" y="34">
+          <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.001" expanded="true" height="145" name="Cross Validation (3)" width="90" x="380" y="34">
             <parameter key="split_on_batch_attribute" value="false"/>
             <parameter key="leave_one_out" value="false"/>
             <parameter key="number_of_folds" value="10"/>
@@ -93,7 +75,7 @@
             <parameter key="local_random_seed" value="1992"/>
             <parameter key="enable_parallel_execution" value="true"/>
             <process expanded="true">
-              <operator activated="false" class="k_nn" compatibility="9.10.001" expanded="true" height="82" name="k-NN" width="90" x="313" y="187">
+              <operator activated="false" class="k_nn" compatibility="9.10.001" expanded="true" height="82" name="k-NN (3)" width="90" x="313" y="187">
                 <parameter key="k" value="5"/>
                 <parameter key="weighted_vote" value="true"/>
                 <parameter key="measure_types" value="MixedMeasures"/>
@@ -111,7 +93,7 @@
                 <parameter key="kernel_a" value="1.0"/>
                 <parameter key="kernel_b" value="0.0"/>
               </operator>
-              <operator activated="false" class="h2o:deep_learning" compatibility="9.10.001" expanded="true" height="103" name="Deep Learning" width="90" x="313" y="289">
+              <operator activated="false" class="h2o:deep_learning" compatibility="9.10.001" expanded="true" height="103" name="Deep Learning (3)" width="90" x="313" y="289">
                 <parameter key="activation" value="RectifierWithDropout"/>
                 <enumeration key="hidden_layer_sizes">
                   <parameter key="hidden_layer_sizes" value="50"/>
@@ -152,10 +134,10 @@
                 <list key="expert_parameters"/>
                 <list key="expert_parameters_"/>
               </operator>
-              <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes (3)" width="90" x="45" y="136">
+              <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes" width="90" x="45" y="34">
                 <parameter key="attribute_filter_type" value="subset"/>
                 <parameter key="attribute" value=""/>
-                <parameter key="attributes" value="age_at_loan_time|amount|average(balance)|balance|district|duration|gender|loan_date|maximum(balance)|minimum(balance)|no_credits|no_withdrawal|payments|region|status|time_elapsed|type"/>
+                <parameter key="attributes" value="age_at_loan_time|average(balance)|average_salary|balance|district|duration|gender|loan_date|maximum(balance)|minimum(balance)|no_cities|no_commited_crimes_95|no_credits|no_enterpreneurs_1000_habit|no_withdrawal|payments|ratio_urban_inhabitants|region|status|time_elapsed|type|unemploymant_rate_95|unemploymant_rate_96"/>
                 <parameter key="use_except_expression" value="false"/>
                 <parameter key="value_type" value="attribute_value"/>
                 <parameter key="use_value_type_exception" value="false"/>
@@ -166,7 +148,7 @@
                 <parameter key="invert_selection" value="false"/>
                 <parameter key="include_special_attributes" value="false"/>
               </operator>
-              <operator activated="true" class="filter_examples" compatibility="9.10.001" expanded="true" height="103" name="Filter Examples" width="90" x="45" y="238">
+              <operator activated="true" class="filter_examples" compatibility="9.10.001" expanded="true" height="103" name="Filter Examples (2)" width="90" x="45" y="136">
                 <parameter key="parameter_expression" value=""/>
                 <parameter key="condition_class" value="custom_filters"/>
                 <parameter key="invert_filter" value="false"/>
@@ -177,7 +159,7 @@
                 <parameter key="filters_logic_and" value="true"/>
                 <parameter key="filters_check_metadata" value="true"/>
               </operator>
-              <operator activated="false" class="remove_duplicates" compatibility="9.10.001" expanded="true" height="103" name="Remove Duplicates" width="90" x="45" y="391">
+              <operator activated="true" class="remove_duplicates" compatibility="9.10.001" expanded="true" height="103" name="Remove Duplicates (2)" width="90" x="45" y="289">
                 <parameter key="attribute_filter_type" value="all"/>
                 <parameter key="attribute" value=""/>
                 <parameter key="attributes" value=""/>
@@ -192,7 +174,15 @@
                 <parameter key="include_special_attributes" value="false"/>
                 <parameter key="treat_missing_values_as_duplicates" value="false"/>
               </operator>
-              <operator activated="true" class="operator_toolbox:smote" compatibility="2.12.000" expanded="true" height="82" name="SMOTE Upsampling" width="90" x="45" y="544">
+              <operator activated="true" class="remove_correlated_attributes" compatibility="9.10.001" expanded="true" height="82" name="Remove Correlated Attributes" width="90" x="45" y="442">
+                <parameter key="correlation" value="0.9"/>
+                <parameter key="filter_relation" value="greater equals"/>
+                <parameter key="attribute_order" value="original"/>
+                <parameter key="use_absolute_correlation" value="true"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <operator activated="true" class="operator_toolbox:smote" compatibility="2.12.000" expanded="true" height="82" name="SMOTE Upsampling (3)" width="90" x="45" y="544">
                 <parameter key="number_of_neighbours" value="5"/>
                 <parameter key="normalize" value="true"/>
                 <parameter key="equalize_classes" value="true"/>
@@ -203,7 +193,7 @@
                 <parameter key="use_local_random_seed" value="false"/>
                 <parameter key="local_random_seed" value="1992"/>
               </operator>
-              <operator activated="false" class="concurrency:parallel_random_forest" compatibility="9.10.001" expanded="true" height="103" name="Random Forest" width="90" x="313" y="391">
+              <operator activated="true" class="concurrency:parallel_random_forest" compatibility="9.10.001" expanded="true" height="103" name="Random Forest (3)" width="90" x="313" y="391">
                 <parameter key="number_of_trees" value="100"/>
                 <parameter key="criterion" value="gain_ratio"/>
                 <parameter key="maximal_depth" value="10"/>
@@ -222,7 +212,7 @@
                 <parameter key="local_random_seed" value="1992"/>
                 <parameter key="enable_parallel_execution" value="true"/>
               </operator>
-              <operator activated="true" class="concurrency:parallel_decision_tree" compatibility="9.10.001" expanded="true" height="103" name="Decision Tree" width="90" x="313" y="34">
+              <operator activated="false" class="concurrency:parallel_decision_tree" compatibility="9.10.001" expanded="true" height="103" name="Decision Tree (3)" width="90" x="313" y="34">
                 <parameter key="criterion" value="gain_ratio"/>
                 <parameter key="maximal_depth" value="10"/>
                 <parameter key="apply_pruning" value="true"/>
@@ -233,11 +223,153 @@
                 <parameter key="minimal_size_for_split" value="4"/>
                 <parameter key="number_of_prepruning_alternatives" value="3"/>
               </operator>
+              <connect from_port="training set" to_op="Select Attributes" to_port="example set input"/>
+              <connect from_op="Select Attributes" from_port="example set output" to_op="Filter Examples (2)" to_port="example set input"/>
+              <connect from_op="Filter Examples (2)" from_port="example set output" to_op="Remove Duplicates (2)" to_port="example set input"/>
+              <connect from_op="Remove Duplicates (2)" from_port="example set output" to_op="Remove Correlated Attributes" to_port="example set input"/>
+              <connect from_op="Remove Correlated Attributes" from_port="example set output" to_op="SMOTE Upsampling (3)" to_port="exa"/>
+              <connect from_op="SMOTE Upsampling (3)" from_port="ups" to_op="Random Forest (3)" to_port="training set"/>
+              <connect from_op="Random Forest (3)" from_port="model" to_port="model"/>
+              <portSpacing port="source_training set" spacing="0"/>
+              <portSpacing port="sink_model" spacing="0"/>
+              <portSpacing port="sink_through 1" spacing="0"/>
+            </process>
+            <process expanded="true">
+              <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model (3)" width="90" x="112" y="34">
+                <list key="application_parameters"/>
+                <parameter key="create_view" value="false"/>
+              </operator>
+              <operator activated="true" class="performance_binominal_classification" compatibility="9.10.001" expanded="true" height="82" name="Performance (3)" width="90" x="246" y="34">
+                <parameter key="manually_set_positive_class" value="false"/>
+                <parameter key="main_criterion" value="AUC"/>
+                <parameter key="accuracy" value="true"/>
+                <parameter key="classification_error" value="false"/>
+                <parameter key="kappa" value="false"/>
+                <parameter key="AUC (optimistic)" value="true"/>
+                <parameter key="AUC" value="true"/>
+                <parameter key="AUC (pessimistic)" value="true"/>
+                <parameter key="precision" value="false"/>
+                <parameter key="recall" value="false"/>
+                <parameter key="lift" value="false"/>
+                <parameter key="fallout" value="false"/>
+                <parameter key="f_measure" value="false"/>
+                <parameter key="false_positive" value="false"/>
+                <parameter key="false_negative" value="false"/>
+                <parameter key="true_positive" value="false"/>
+                <parameter key="true_negative" value="false"/>
+                <parameter key="sensitivity" value="false"/>
+                <parameter key="specificity" value="false"/>
+                <parameter key="youden" value="false"/>
+                <parameter key="positive_predictive_value" value="false"/>
+                <parameter key="negative_predictive_value" value="false"/>
+                <parameter key="psep" value="false"/>
+                <parameter key="skip_undefined_labels" value="true"/>
+                <parameter key="use_example_weights" value="true"/>
+              </operator>
+              <connect from_port="model" to_op="Apply Model (3)" to_port="model"/>
+              <connect from_port="test set" to_op="Apply Model (3)" to_port="unlabelled data"/>
+              <connect from_op="Apply Model (3)" from_port="labelled data" to_op="Performance (3)" to_port="labelled data"/>
+              <connect from_op="Performance (3)" from_port="performance" to_port="performance 1"/>
+              <portSpacing port="source_model" spacing="0"/>
+              <portSpacing port="source_test set" spacing="0"/>
+              <portSpacing port="source_through 1" spacing="0"/>
+              <portSpacing port="sink_test set results" spacing="0"/>
+              <portSpacing port="sink_performance 1" spacing="0"/>
+              <portSpacing port="sink_performance 2" spacing="0"/>
+            </process>
+          </operator>
+          <connect from_port="input 1" to_op="Cross Validation (3)" to_port="example set"/>
+          <connect from_op="Cross Validation (3)" from_port="model" to_port="model"/>
+          <connect from_op="Cross Validation (3)" from_port="performance 1" to_port="performance"/>
+          <portSpacing port="source_input 1" spacing="0"/>
+          <portSpacing port="source_input 2" spacing="0"/>
+          <portSpacing port="sink_performance" spacing="0"/>
+          <portSpacing port="sink_model" spacing="0"/>
+          <portSpacing port="sink_output 1" spacing="0"/>
+        </process>
+        <description align="center" color="transparent" colored="false" width="126">nao tem otimizacoes</description>
+      </operator>
+      <operator activated="false" class="concurrency:optimize_parameters_grid" compatibility="9.10.001" expanded="true" height="124" name="Optimize Parameters (Grid)" width="90" x="849" y="34">
+        <list key="parameters">
+          <parameter key="Random Forest.criterion" value="gain_ratio,information_gain,gini_index,accuracy"/>
+          <parameter key="Random Forest.maximal_depth" value="[10;50.0;10;linear]"/>
+          <parameter key="Random Forest.minimal_leaf_size" value="[10;50;10;linear]"/>
+        </list>
+        <parameter key="error_handling" value="fail on error"/>
+        <parameter key="log_performance" value="true"/>
+        <parameter key="log_all_criteria" value="false"/>
+        <parameter key="synchronize" value="false"/>
+        <parameter key="enable_parallel_execution" value="true"/>
+        <process expanded="true">
+          <operator activated="true" class="concurrency:cross_validation" compatibility="9.10.001" expanded="true" height="145" name="Cross Validation" width="90" x="380" y="34">
+            <parameter key="split_on_batch_attribute" value="false"/>
+            <parameter key="leave_one_out" value="false"/>
+            <parameter key="number_of_folds" value="10"/>
+            <parameter key="sampling_type" value="automatic"/>
+            <parameter key="use_local_random_seed" value="false"/>
+            <parameter key="local_random_seed" value="1992"/>
+            <parameter key="enable_parallel_execution" value="true"/>
+            <process expanded="true">
+              <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes (3)" width="90" x="45" y="187">
+                <parameter key="attribute_filter_type" value="subset"/>
+                <parameter key="attribute" value=""/>
+                <parameter key="attributes" value="age_at_loan_time|amount|average(balance)|balance|district|duration|gender|loan_date|maximum(balance)|minimum(balance)|no_credits|no_withdrawal|payments|region|status|time_elapsed|type|unemploymant_rate_95|no_commited_crimes_95|no_cities|no_enterpreneurs_1000_habit|no_municipalities_habit_bet_500_1999|no_municipalities_habit_bet_2000_9999|no_municipalities_habit_greater_10000|no_municipalities_habit_less_499|ratio_urban_inhabitants|unemploymant_rate_96|average_salary"/>
+                <parameter key="use_except_expression" value="false"/>
+                <parameter key="value_type" value="attribute_value"/>
+                <parameter key="use_value_type_exception" value="false"/>
+                <parameter key="except_value_type" value="time"/>
+                <parameter key="block_type" value="attribute_block"/>
+                <parameter key="use_block_type_exception" value="false"/>
+                <parameter key="except_block_type" value="value_matrix_row_start"/>
+                <parameter key="invert_selection" value="false"/>
+                <parameter key="include_special_attributes" value="false"/>
+              </operator>
+              <operator activated="true" class="filter_examples" compatibility="9.10.001" expanded="true" height="103" name="Filter Examples" width="90" x="179" y="187">
+                <parameter key="parameter_expression" value=""/>
+                <parameter key="condition_class" value="custom_filters"/>
+                <parameter key="invert_filter" value="false"/>
+                <list key="filters_list">
+                  <parameter key="filters_entry_key" value="age_at_loan_time.ge.18"/>
+                  <parameter key="filters_entry_key" value="maximum(balance).is_not_missing."/>
+                </list>
+                <parameter key="filters_logic_and" value="true"/>
+                <parameter key="filters_check_metadata" value="true"/>
+              </operator>
+              <operator activated="true" class="operator_toolbox:smote" compatibility="2.12.000" expanded="true" height="82" name="SMOTE Upsampling" width="90" x="313" y="187">
+                <parameter key="number_of_neighbours" value="5"/>
+                <parameter key="normalize" value="true"/>
+                <parameter key="equalize_classes" value="true"/>
+                <parameter key="upsampling_size" value="1000"/>
+                <parameter key="auto_detect_minority_class" value="true"/>
+                <parameter key="round_integers" value="true"/>
+                <parameter key="nominal_change_rate" value="0.5"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+              </operator>
+              <operator activated="true" class="concurrency:parallel_random_forest" compatibility="9.10.001" expanded="true" height="103" name="Random Forest" width="90" x="313" y="34">
+                <parameter key="number_of_trees" value="100"/>
+                <parameter key="criterion" value="gain_ratio"/>
+                <parameter key="maximal_depth" value="10"/>
+                <parameter key="apply_pruning" value="false"/>
+                <parameter key="confidence" value="0.1"/>
+                <parameter key="apply_prepruning" value="false"/>
+                <parameter key="minimal_gain" value="0.01"/>
+                <parameter key="minimal_leaf_size" value="2"/>
+                <parameter key="minimal_size_for_split" value="4"/>
+                <parameter key="number_of_prepruning_alternatives" value="3"/>
+                <parameter key="random_splits" value="false"/>
+                <parameter key="guess_subset_ratio" value="true"/>
+                <parameter key="subset_ratio" value="0.2"/>
+                <parameter key="voting_strategy" value="confidence vote"/>
+                <parameter key="use_local_random_seed" value="false"/>
+                <parameter key="local_random_seed" value="1992"/>
+                <parameter key="enable_parallel_execution" value="true"/>
+              </operator>
               <connect from_port="training set" to_op="Select Attributes (3)" to_port="example set input"/>
               <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Filter Examples" to_port="example set input"/>
               <connect from_op="Filter Examples" from_port="example set output" to_op="SMOTE Upsampling" to_port="exa"/>
-              <connect from_op="SMOTE Upsampling" from_port="ups" to_op="Decision Tree" to_port="training set"/>
-              <connect from_op="Decision Tree" from_port="model" to_port="model"/>
+              <connect from_op="SMOTE Upsampling" from_port="ups" to_op="Random Forest" to_port="training set"/>
+              <connect from_op="Random Forest" from_port="model" to_port="model"/>
               <portSpacing port="source_training set" spacing="0"/>
               <portSpacing port="sink_model" spacing="0"/>
               <portSpacing port="sink_through 1" spacing="0"/>
@@ -295,45 +427,14 @@
           <portSpacing port="sink_model" spacing="0"/>
           <portSpacing port="sink_output 1" spacing="0"/>
         </process>
+        <description align="center" color="transparent" colored="false" width="126">tem otimizacoes&lt;br&gt;</description>
       </operator>
-      <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model (2)" width="90" x="916" y="136">
+      <operator activated="true" class="apply_model" compatibility="9.10.001" expanded="true" height="82" name="Apply Model (4)" width="90" x="1050" y="187">
         <list key="application_parameters"/>
         <parameter key="create_view" value="false"/>
       </operator>
-      <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes (2)" width="90" x="1050" y="136">
-        <parameter key="attribute_filter_type" value="subset"/>
-        <parameter key="attribute" value=""/>
-        <parameter key="attributes" value="confidence(true)|loan_id"/>
-        <parameter key="use_except_expression" value="false"/>
-        <parameter key="value_type" value="attribute_value"/>
-        <parameter key="use_value_type_exception" value="false"/>
-        <parameter key="except_value_type" value="time"/>
-        <parameter key="block_type" value="attribute_block"/>
-        <parameter key="use_block_type_exception" value="false"/>
-        <parameter key="except_block_type" value="value_matrix_row_start"/>
-        <parameter key="invert_selection" value="false"/>
-        <parameter key="include_special_attributes" value="true"/>
-      </operator>
-      <operator activated="true" class="blending:rename" compatibility="9.10.001" expanded="true" height="82" name="Rename" width="90" x="1184" y="136">
-        <list key="rename attributes">
-          <parameter key="confidence(true)" value="Predicted"/>
-          <parameter key="loan_id" value="Id"/>
-        </list>
-        <parameter key="from_attribute" value=""/>
-        <parameter key="to_attribute" value=""/>
-      </operator>
-      <operator activated="true" class="write_csv" compatibility="9.10.001" expanded="true" height="82" name="Write CSV" width="90" x="1318" y="136">
-        <parameter key="csv_file" value="C:/Users/utilizador/OneDrive - Universidade do Porto/Ambiente de Trabalho/AC/Projeto/Livro1.csv"/>
-        <parameter key="column_separator" value=","/>
-        <parameter key="write_attribute_names" value="true"/>
-        <parameter key="quote_nominal_values" value="false"/>
-        <parameter key="format_date_attributes" value="true"/>
-        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
-        <parameter key="append_to_file" value="false"/>
-        <parameter key="encoding" value="SYSTEM"/>
-      </operator>
-      <operator activated="false" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="82" name="Execute Joins_Dev (2)" width="90" x="380" y="391">
-        <parameter key="process_location" value="Joins_Dev"/>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute output" width="90" x="1184" y="187">
+        <parameter key="process_location" value="output"/>
         <parameter key="use_input" value="true"/>
         <parameter key="store_output" value="false"/>
         <parameter key="propagate_metadata_recursively" value="true"/>
@@ -341,46 +442,15 @@
         <list key="macros"/>
         <parameter key="fail_for_unknown_macros" value="true"/>
       </operator>
-      <operator activated="false" class="numerical_to_binominal" compatibility="9.10.001" expanded="true" height="82" name="Numerical to Binominal (2)" width="90" x="514" y="391">
-        <parameter key="attribute_filter_type" value="single"/>
-        <parameter key="attribute" value="status"/>
-        <parameter key="attributes" value=""/>
-        <parameter key="use_except_expression" value="false"/>
-        <parameter key="value_type" value="numeric"/>
-        <parameter key="use_value_type_exception" value="false"/>
-        <parameter key="except_value_type" value="real"/>
-        <parameter key="block_type" value="value_series"/>
-        <parameter key="use_block_type_exception" value="false"/>
-        <parameter key="except_block_type" value="value_series_end"/>
-        <parameter key="invert_selection" value="false"/>
-        <parameter key="include_special_attributes" value="false"/>
-        <parameter key="min" value="0.0"/>
-        <parameter key="max" value="2.0"/>
-      </operator>
-      <operator activated="false" class="set_role" compatibility="9.10.001" expanded="true" height="82" name="Set Role (3)" width="90" x="648" y="391">
-        <parameter key="attribute_name" value="status"/>
-        <parameter key="target_role" value="label"/>
-        <list key="set_additional_roles"/>
-      </operator>
-      <operator activated="false" class="principal_component_analysis" compatibility="9.10.001" expanded="true" height="103" name="PCA" width="90" x="983" y="340">
-        <parameter key="dimensionality_reduction" value="keep variance"/>
-        <parameter key="variance_threshold" value="0.95"/>
-        <parameter key="number_of_components" value="1"/>
-      </operator>
-      <operator activated="false" class="model_simulator:quality_measures" compatibility="9.10.001" expanded="true" height="68" name="Quality Measures" width="90" x="983" y="493"/>
       <connect from_op="Execute Joins_Comp" from_port="result 1" to_op="Set Role (2)" to_port="example set input"/>
-      <connect from_op="Set Role (2)" from_port="example set output" to_op="Apply Model (2)" to_port="unlabelled data"/>
+      <connect from_op="Set Role (2)" from_port="example set output" to_op="Apply Model (4)" to_port="unlabelled data"/>
       <connect from_op="Execute Joins_Dev" from_port="result 1" to_op="Numerical to Binominal" to_port="example set input"/>
       <connect from_op="Numerical to Binominal" from_port="example set output" to_op="Set Role" to_port="example set input"/>
-      <connect from_op="Set Role" from_port="example set output" to_op="Optimize Parameters (Grid)" to_port="input 1"/>
-      <connect from_op="Optimize Parameters (Grid)" from_port="performance" to_port="result 2"/>
-      <connect from_op="Optimize Parameters (Grid)" from_port="model" to_op="Apply Model (2)" to_port="model"/>
-      <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Select Attributes (2)" to_port="example set input"/>
-      <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Rename" to_port="example set input"/>
-      <connect from_op="Rename" from_port="example set output" to_op="Write CSV" to_port="input"/>
-      <connect from_op="Write CSV" from_port="through" to_port="result 1"/>
-      <connect from_op="Execute Joins_Dev (2)" from_port="result 1" to_op="Numerical to Binominal (2)" to_port="example set input"/>
-      <connect from_op="Numerical to Binominal (2)" from_port="example set output" to_op="Set Role (3)" to_port="example set input"/>
+      <connect from_op="Set Role" from_port="example set output" to_op="Optimize Parameters (Grid) (3)" to_port="input 1"/>
+      <connect from_op="Optimize Parameters (Grid) (3)" from_port="performance" to_port="result 1"/>
+      <connect from_op="Optimize Parameters (Grid) (3)" from_port="model" to_op="Apply Model (4)" to_port="model"/>
+      <connect from_op="Apply Model (4)" from_port="labelled data" to_op="Execute output" to_port="input 1"/>
+      <connect from_op="Execute output" from_port="result 1" to_port="result 2"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
