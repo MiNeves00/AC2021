@@ -12,7 +12,7 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes (2)" width="90" x="313" y="136">
+      <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes (2)" width="90" x="246" y="136">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value="confidence(true)|loan_id"/>
@@ -26,7 +26,7 @@
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="true"/>
       </operator>
-      <operator activated="true" class="blending:rename" compatibility="9.10.001" expanded="true" height="82" name="Rename" width="90" x="447" y="136">
+      <operator activated="true" class="blending:rename" compatibility="9.10.001" expanded="true" height="82" name="Rename" width="90" x="380" y="136">
         <list key="rename attributes">
           <parameter key="confidence(true)" value="Predicted"/>
           <parameter key="loan_id" value="Id"/>
@@ -34,7 +34,7 @@
         <parameter key="from_attribute" value=""/>
         <parameter key="to_attribute" value=""/>
       </operator>
-      <operator activated="true" class="write_csv" compatibility="9.10.001" expanded="true" height="82" name="Write CSV" width="90" x="581" y="136">
+      <operator activated="true" class="write_csv" compatibility="9.10.001" expanded="true" height="82" name="Write CSV" width="90" x="514" y="136">
         <parameter key="csv_file" value="C:/Users/utilizador/OneDrive - Universidade do Porto/Ambiente de Trabalho/AC/Projeto/Livro1.csv"/>
         <parameter key="column_separator" value=","/>
         <parameter key="write_attribute_names" value="true"/>
@@ -52,6 +52,9 @@
       <portSpacing port="source_input 2" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="50" resized="true" width="140" x="211" y="228">Select Loan ID and Confidence of -1.</description>
+      <description align="center" color="yellow" colored="false" height="51" resized="true" width="118" x="367" y="80">Rename columns to desired.</description>
+      <description align="center" color="yellow" colored="false" height="50" resized="true" width="136" x="487" y="227">Save predictions in to a csv file.</description>
     </process>
   </operator>
 </process>
