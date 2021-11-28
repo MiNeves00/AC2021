@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><process version="9.10.001">
+<?xml version="1.0" encoding="UTF-8"?><process version="9.9.003">
   <context>
     <input/>
     <output/>
     <macros/>
   </context>
-  <operator activated="true" class="process" compatibility="9.10.001" expanded="true" name="Process">
+  <operator activated="true" class="process" compatibility="9.9.003" expanded="true" name="Process">
     <parameter key="logverbosity" value="init"/>
     <parameter key="random_seed" value="2001"/>
     <parameter key="send_mail" value="never"/>
@@ -12,7 +12,7 @@
     <parameter key="process_duration_for_mail" value="30"/>
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
-      <operator activated="true" class="select_attributes" compatibility="9.10.001" expanded="true" height="82" name="Select Attributes (2)" width="90" x="246" y="136">
+      <operator activated="true" class="select_attributes" compatibility="9.9.003" expanded="true" height="82" name="Select Attributes (2)" width="90" x="246" y="136">
         <parameter key="attribute_filter_type" value="subset"/>
         <parameter key="attribute" value=""/>
         <parameter key="attributes" value="confidence(true)|loan_id"/>
@@ -26,7 +26,7 @@
         <parameter key="invert_selection" value="false"/>
         <parameter key="include_special_attributes" value="true"/>
       </operator>
-      <operator activated="true" class="blending:rename" compatibility="9.10.001" expanded="true" height="82" name="Rename" width="90" x="380" y="136">
+      <operator activated="true" class="blending:rename" compatibility="9.9.003" expanded="true" height="82" name="Rename" width="90" x="380" y="136">
         <list key="rename attributes">
           <parameter key="confidence(true)" value="Predicted"/>
           <parameter key="loan_id" value="Id"/>
@@ -34,20 +34,18 @@
         <parameter key="from_attribute" value=""/>
         <parameter key="to_attribute" value=""/>
       </operator>
-      <operator activated="true" class="write_csv" compatibility="9.10.001" expanded="true" height="82" name="Write CSV" width="90" x="514" y="136">
+      <operator activated="false" class="write_csv" compatibility="9.9.003" expanded="true" height="82" name="Write CSV" width="90" x="514" y="136">
         <parameter key="csv_file" value="C:/Users/utilizador/OneDrive - Universidade do Porto/Ambiente de Trabalho/AC/Projeto/Livro1.csv"/>
         <parameter key="column_separator" value=","/>
         <parameter key="write_attribute_names" value="true"/>
         <parameter key="quote_nominal_values" value="false"/>
         <parameter key="format_date_attributes" value="true"/>
-        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
         <parameter key="append_to_file" value="false"/>
         <parameter key="encoding" value="SYSTEM"/>
       </operator>
       <connect from_port="input 1" to_op="Select Attributes (2)" to_port="example set input"/>
       <connect from_op="Select Attributes (2)" from_port="example set output" to_op="Rename" to_port="example set input"/>
-      <connect from_op="Rename" from_port="example set output" to_op="Write CSV" to_port="input"/>
-      <connect from_op="Write CSV" from_port="through" to_port="result 1"/>
+      <connect from_op="Rename" from_port="example set output" to_port="result 1"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="source_input 2" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
