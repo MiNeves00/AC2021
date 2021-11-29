@@ -670,7 +670,7 @@
             <list key="application_parameters"/>
             <parameter key="create_view" value="false"/>
           </operator>
-          <operator activated="false" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute output" width="90" x="715" y="85">
+          <operator activated="true" class="productivity:execute_process" compatibility="9.10.001" expanded="true" height="68" name="Execute output" width="90" x="715" y="85">
             <parameter key="process_location" value="output"/>
             <parameter key="use_input" value="true"/>
             <parameter key="store_output" value="false"/>
@@ -686,7 +686,8 @@
           <connect from_op="Apply Model Test" from_port="labelled data" to_op="Performance Test" to_port="labelled data"/>
           <connect from_op="Apply Model Test" from_port="model" to_op="Apply Model Comp" to_port="model"/>
           <connect from_op="Performance Test" from_port="performance" to_port="out 1"/>
-          <connect from_op="Apply Model Comp" from_port="labelled data" to_port="out 2"/>
+          <connect from_op="Apply Model Comp" from_port="labelled data" to_op="Execute output" to_port="input 1"/>
+          <connect from_op="Execute output" from_port="result 1" to_port="out 2"/>
           <portSpacing port="source_in 1" spacing="0"/>
           <portSpacing port="source_in 2" spacing="0"/>
           <portSpacing port="source_in 3" spacing="0"/>
