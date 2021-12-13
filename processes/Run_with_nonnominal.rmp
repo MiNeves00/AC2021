@@ -203,7 +203,7 @@
                     <parameter key="quadratic_loss_neg" value="false"/>
                     <parameter key="estimate_performance" value="false"/>
                   </operator>
-                  <operator activated="true" class="linear_regression" compatibility="9.10.001" expanded="true" height="103" name="Linear Regression (3)" width="90" x="179" y="289">
+                  <operator activated="false" class="linear_regression" compatibility="9.10.001" expanded="true" height="103" name="Linear Regression (3)" width="90" x="179" y="289">
                     <parameter key="feature_selection" value="M5 prime"/>
                     <parameter key="alpha" value="0.05"/>
                     <parameter key="max_iterations" value="10"/>
@@ -214,7 +214,7 @@
                     <parameter key="use_bias" value="true"/>
                     <parameter key="ridge" value="1.0E-8"/>
                   </operator>
-                  <operator activated="false" class="concurrency:parallel_random_forest" compatibility="9.10.001" expanded="true" height="103" name="Random Forest (2)" width="90" x="179" y="442">
+                  <operator activated="true" class="concurrency:parallel_random_forest" compatibility="9.10.001" expanded="true" height="103" name="Random Forest (2)" width="90" x="179" y="442">
                     <parameter key="number_of_trees" value="100"/>
                     <parameter key="criterion" value="gain_ratio"/>
                     <parameter key="maximal_depth" value="10"/>
@@ -233,8 +233,8 @@
                     <parameter key="local_random_seed" value="1992"/>
                     <parameter key="enable_parallel_execution" value="true"/>
                   </operator>
-                  <connect from_port="training set" to_op="Linear Regression (3)" to_port="training set"/>
-                  <connect from_op="Linear Regression (3)" from_port="model" to_port="model"/>
+                  <connect from_port="training set" to_op="Random Forest (2)" to_port="training set"/>
+                  <connect from_op="Random Forest (2)" from_port="model" to_port="model"/>
                   <portSpacing port="source_training set" spacing="0"/>
                   <portSpacing port="sink_model" spacing="0"/>
                   <portSpacing port="sink_through 1" spacing="0"/>
@@ -744,7 +744,7 @@
                 <parameter key="unexpected_value_handling" value="all 0 and warning"/>
                 <parameter key="use_underscore_in_name" value="false"/>
               </operator>
-              <operator activated="false" class="concurrency:parallel_random_forest" compatibility="9.10.001" expanded="true" height="103" name="Random Forest" width="90" x="313" y="442">
+              <operator activated="true" class="concurrency:parallel_random_forest" compatibility="9.10.001" expanded="true" height="103" name="Random Forest" width="90" x="313" y="442">
                 <parameter key="number_of_trees" value="100"/>
                 <parameter key="criterion" value="gain_ratio"/>
                 <parameter key="maximal_depth" value="10"/>
@@ -775,7 +775,7 @@
                 <parameter key="use_local_random_seed" value="false"/>
                 <parameter key="local_random_seed" value="1992"/>
               </operator>
-              <operator activated="true" class="linear_regression" compatibility="9.10.001" expanded="true" height="103" name="Linear Regression" width="90" x="313" y="289">
+              <operator activated="false" class="linear_regression" compatibility="9.10.001" expanded="true" height="103" name="Linear Regression" width="90" x="313" y="289">
                 <parameter key="feature_selection" value="M5 prime"/>
                 <parameter key="alpha" value="0.05"/>
                 <parameter key="max_iterations" value="10"/>
@@ -815,8 +815,8 @@
               </operator>
               <connect from_port="training set" to_op="SMOTE Upsampling (3)" to_port="exa"/>
               <connect from_op="SMOTE Upsampling (3)" from_port="ups" to_op="Nominal to Numerical (2)" to_port="example set input"/>
-              <connect from_op="Nominal to Numerical (2)" from_port="example set output" to_op="Linear Regression" to_port="training set"/>
-              <connect from_op="Linear Regression" from_port="model" to_port="model"/>
+              <connect from_op="Nominal to Numerical (2)" from_port="example set output" to_op="Random Forest" to_port="training set"/>
+              <connect from_op="Random Forest" from_port="model" to_port="model"/>
               <portSpacing port="source_training set" spacing="0"/>
               <portSpacing port="sink_model" spacing="0"/>
               <portSpacing port="sink_through 1" spacing="0"/>
